@@ -1,3 +1,9 @@
 = content main
-  h1 This is the home page
-  marquee yay
+  {{ range (where .Data.Pages "Section" "posts") }}
+  article
+    h1
+      a href={{ .Permalink }} {{ .Title }}
+    time datetime={{ .Date.Format "2006-01-02" }}
+      {{ .Date.Format "Jan 2, 2006" }}
+    p {{ .Summary }}
+  {{ end }}
