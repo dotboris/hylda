@@ -1,5 +1,6 @@
 ---
 title: About
+menu: main
 ---
 
 Who writes about pages anymore?

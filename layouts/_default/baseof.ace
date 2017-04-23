@@ -8,5 +8,14 @@ html lang={{ .Site.LanguageCode }}
       title {{ .Title }} | {{ .Site.Title }}
     {{ end }}
   body
+    aside
+      img src=https://placehold.it/200 alt={{ .Site.Author.Name }}
+      div {{ .Site.Title }}
+      nav
+        ul
+          {{ range .Site.Menus.main }}
+            li
+              a href={{ .URL }} {{ .Name }}
+          {{ end }}
     main
       = yield main
