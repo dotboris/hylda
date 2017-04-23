@@ -1,5 +1,6 @@
 = content main
-  {{ range (where .Data.Pages "Section" "posts") }}
+  {{ $paginator := .Paginate (where .Data.Pages "Section" "posts") }}
+  {{ range $paginator.Pages }}
   article
     h1
       a href={{ .Permalink }} {{ .Title }}
@@ -7,3 +8,5 @@
       {{ .Date.Format "Jan 2, 2006" }}
     p {{ .Summary }}
   {{ end }}
+  // TODO: use own pagination html and not the internal one
+  {{ template "_internal/pagination.html" . }}
