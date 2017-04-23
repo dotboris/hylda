@@ -1,5 +1,3 @@
-= doctype html
-html
-  head
-  body
-    marquee Hello world
+= content main
+  h1 This is the home page
+  marquee yay

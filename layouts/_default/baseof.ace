@@ -1,0 +1,11 @@
+= doctype html
+html lang={{ .Site.LanguageCode }}
+  head
+    meta charset=utf-8
+    {{ if .IsHome }}
+      title {{ .Site.Title }}
+    {{ else }}
+      title {{ .Title }} | {{ .Site.Title }}
+    {{ end }}
+  body
+    = yield main
