@@ -1,3 +1,6 @@
 languageCode = "en-us"
 title = "Hylda example site"
 theme = "hylda"
+
+[permaLinks]
+  posts = "/:year/:month/:day/:slug/"
