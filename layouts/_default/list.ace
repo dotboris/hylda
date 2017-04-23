@@ -1,0 +1,9 @@
+= content main
+  {{ range .Data.Pages }}
+  article
+    h1
+      a href={{ .Permalink }} {{ .Title }}
+    time datetime={{ .Date.Format "2006-01-02" }}
+      {{ .Date.Format "Jan 2, 2006" }}
+    p {{ .Summary }}
+  {{ end }}
