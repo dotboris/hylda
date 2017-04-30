@@ -1,7 +1,22 @@
-const gulp = require('gulp');
-const sass = require('gulp-sass');
+const gulp = require('gulp')
+const sass = require('gulp-sass')
+const stylelint = require('gulp-stylelint')
 
 const SASS_FILES = 'sass/**/*.scss'
+
+let watching = false
+
+gulp.task('lint:sass', () =>
+  gulp.src(SASS_FILES)
+    .pipe(stylelint({
+      failOnError: !watching,
+      reporters: [
+        {formatter: 'string', console: true}
+      ]
+    }))
+)
+
+gulp.task('lint', ['lint:sass'])
 
 gulp.task('sass', () =>
   gulp.src(SASS_FILES)
@@ -11,6 +26,7 @@ gulp.task('sass', () =>
 
 gulp.task('default', ['sass'])
 
-gulp.task('watch', ['sass'], () => {
-  gulp.watch(SASS_FILES, ['sass'])
+gulp.task('watch', ['sass', 'lint'], () => {
+  watching = true
+  gulp.watch(SASS_FILES, ['sass', 'lint:sass'])
 })
