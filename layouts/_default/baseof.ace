@@ -13,7 +13,7 @@ html lang={{ .Site.LanguageCode }}
     aside.menu
       label.burger for=menu-toggle-chk
         {{ partial "icons/menu.svg" }}
-      input#menu-toggle-chk type=checkbox
+      input.toggle#menu-toggle-chk type=checkbox
       img.photo src=https://placehold.it/200 alt={{ .Site.Author.Name }}
       a.title href={{ "/" | relURL }} {{ .Site.Title }}
       nav

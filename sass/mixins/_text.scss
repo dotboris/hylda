@@ -1,5 +1,5 @@
 $base-text-size: 1rem;
-$text-size-inc: 1rem;
+$text-size-inc: 0.3rem;
 $line-height-extra: 0.2rem;
 
 @mixin _text-size($size) {
@@ -17,4 +17,8 @@ $line-height-extra: 0.2rem;
 
 @mixin text-larger {
   @include _text-size((2 * $text-size-inc) + $base-text-size);
+}
+
+@mixin text-largest {
+  @include _text-size((3 * $text-size-inc) + $base-text-size);
 }
