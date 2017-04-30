@@ -2,8 +2,8 @@
 @import 'mixins/text';
 
 .menu {
-  background-color: $dark-background-colour;
-  color: $light-text-colour;
+  background-color: $dark-colour;
+  color: $light-colour;
   border-bottom: solid 3px $highlight-colour;
   padding: 6px;
 
@@ -12,7 +12,7 @@
   }
 
   a {
-    color: $light-text-colour;
+    color: $light-colour;
     text-decoration: none;
   }
 
