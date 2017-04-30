@@ -1,0 +1,17 @@
+{
+  "name": "hugo-hylda",
+  "version": "0.0.0",
+  "description": "A hyde inspired hugo theme with a splash of colour",
+  "repository": "git@github.com:dotboris/hylda.git",
+  "author": "Boris Bera <bera.boris@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "start": "gulp watch",
+    "build": "gulp",
+    "lint": "gulp lint"
+  },
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-sass": "^3.1.0"
+  }
+}

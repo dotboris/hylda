@@ -2,6 +2,8 @@
 
 cd "$(dirname "$0")/.." || exit 42
 
+yarn start &
+
 pushd example 2> /dev/null
 hugo serve "$@"
 popd 2> /dev/null
