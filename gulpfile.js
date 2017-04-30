@@ -1,5 +1,7 @@
 const gulp = require('gulp')
 const sass = require('gulp-sass')
+const postcss = require('gulp-postcss')
+const autoprefixer = require('autoprefixer')
 const stylelint = require('gulp-stylelint')
 
 const SASS_FILES = 'sass/**/*.scss'
@@ -21,6 +23,7 @@ gulp.task('lint', ['lint:sass'])
 gulp.task('sass', () =>
   gulp.src(SASS_FILES)
     .pipe(sass().on('error', sass.logError))
+    .pipe(postcss([autoprefixer()]))
     .pipe(gulp.dest('static/css/'))
 )
 
