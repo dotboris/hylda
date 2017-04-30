@@ -22,5 +22,5 @@ html lang={{ .Site.LanguageCode }}
             li
               a href={{ .URL }} {{ .Name }}
           {{ end }}
-    main
+    main.content
       = yield main

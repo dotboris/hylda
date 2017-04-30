@@ -1,0 +1,14 @@
+@import 'mixins/_colours';
+
+.content {
+  margin: 8px;
+
+  h1 a {
+    text-decoration: none;
+    color: $dark-colour;
+  }
+
+  h1 {
+    margin-bottom: 6px;
+  }
+}

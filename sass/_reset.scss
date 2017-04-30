@@ -1,9 +1,12 @@
 @import 'mixins/text';
+@import 'mixins/colours';
 
 html {
   @include text-normal;
 
   font-family: Helvetica, Arial, "Lucida Grande", sans-serif;
+  color: $dark-colour;
+  background-color: $light-colour;
 }
 
 body {
