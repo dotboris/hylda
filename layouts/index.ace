@@ -8,5 +8,4 @@
       {{ .Date.Format "Jan 2, 2006" }}
     p {{ .Summary }}
   {{ end }}
-  // TODO: use own pagination html and not the internal one
-  {{ template "_internal/pagination.html" . }}
+  {{ partial "pagination" $paginator }}

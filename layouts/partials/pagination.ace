@@ -1,0 +1,18 @@
+div.pagination
+  ul
+    li
+      {{ if .HasPrev }}
+        a href={{ .Prev.URL }}
+          {{ partial "icons/chevron-left.svg" }}
+      {{ else }}
+        span
+          {{ partial "icons/chevron-left.svg" }}
+      {{ end }}
+    li
+      {{ if .HasNext }}
+        a href={{ .Next.URL }}
+          {{ partial "icons/chevron-right.svg" }}
+      {{ else }}
+        span
+          {{ partial "icons/chevron-right.svg" }}
+      {{ end }}

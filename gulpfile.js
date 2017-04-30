@@ -3,6 +3,7 @@ const sass = require('gulp-sass')
 const postcss = require('gulp-postcss')
 const autoprefixer = require('autoprefixer')
 const stylelint = require('gulp-stylelint')
+const filter = require('gulp-filter')
 
 const SASS_FILES = 'sass/**/*.scss'
 
@@ -27,8 +28,15 @@ gulp.task('sass', () =>
     .pipe(gulp.dest('static/css/'))
 )
 
+const ICONS = ['menu', 'chevron-right', 'chevron-left']
+  .map(i => `${i}.svg`)
+function filterIcons (file) {
+  return ICONS.indexOf(file.relative) !== -1
+}
+
 gulp.task('icons', () =>
-  gulp.src('node_modules/open-iconic/svg/menu.svg')
+  gulp.src('node_modules/open-iconic/svg/*.svg')
+    .pipe(filter(filterIcons))
     .pipe(gulp.dest('layouts/partials/icons/'))
 )
 
