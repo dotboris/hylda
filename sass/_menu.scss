@@ -19,13 +19,6 @@
     cursor: pointer;
     margin-left: 4px;
     margin-right: 8px;
-
-    &::before {
-      height: 100%;
-      content: "";
-      display: inline-block;
-      vertical-align: middle;
-    }
   }
 
   .title {
