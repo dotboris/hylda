@@ -2,9 +2,9 @@
 @import 'mixins/text';
 
 .menu {
-  background-color: $dark_background;
-  color: $dark_text;
-  border-bottom: solid 3px $highlight;
+  background-color: $dark-background-colour;
+  color: $light-text-colour;
+  border-bottom: solid 3px $highlight-colour;
   padding: 6px;
 
   .title {
@@ -12,7 +12,7 @@
   }
 
   a {
-    color: $dark_text;
+    color: $light-text-colour;
     text-decoration: none;
   }
 
