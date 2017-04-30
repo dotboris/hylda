@@ -8,10 +8,13 @@ html lang={{ .Site.LanguageCode }}
       title {{ .Title }} | {{ .Site.Title }}
     {{ end }}
     meta name=viewport content="width=device-width, initial-scale=1"
-    link rel=stylesheet href=css/index.css
+    link rel=stylesheet href={{ "/css/index.css" | relURL }}
   body
     aside.menu
-      img src=https://placehold.it/200 alt={{ .Site.Author.Name }}
+      label.burger for=menu-toggle-chk
+        {{ partial "icons/menu.svg" }}
+      input#menu-toggle-chk type=checkbox
+      img.photo src=https://placehold.it/200 alt={{ .Site.Author.Name }}
       a.title href={{ "/" | relURL }} {{ .Site.Title }}
       nav
         ul

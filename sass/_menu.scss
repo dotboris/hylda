@@ -2,13 +2,41 @@
 @import 'mixins/text';
 
 .menu {
+  #menu-toggle-chk {
+    display: none;
+  }
+
   background-color: $dark-colour;
   color: $light-colour;
   border-bottom: solid 3px $highlight-colour;
   padding: 6px;
 
+  .burger {
+    svg {
+      width: 1.2rem;
+      height: 1.2rem;
+      fill: $light-colour;
+      display: inline-block;
+      vertical-align: middle;
+    }
+
+    cursor: pointer;
+    margin-left: 4px;
+    margin-right: 8px;
+
+    &::before {
+      height: 100%;
+      content: "";
+      display: inline-block;
+      vertical-align: middle;
+    }
+  }
+
   .title {
     @include text-large;
+
+    font-weight: bold;
+    vertical-align: middle;
   }
 
   a {
@@ -16,7 +44,7 @@
     text-decoration: none;
   }
 
-  img,
+  .photo,
   nav {
     display: none;
   }

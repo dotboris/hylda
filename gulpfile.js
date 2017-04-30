@@ -27,7 +27,12 @@ gulp.task('sass', () =>
     .pipe(gulp.dest('static/css/'))
 )
 
-gulp.task('default', ['sass'])
+gulp.task('icons', () =>
+  gulp.src('node_modules/open-iconic/svg/menu.svg')
+    .pipe(gulp.dest('layouts/partials/icons/'))
+)
+
+gulp.task('default', ['sass', 'icons'])
 
 gulp.task('watch', ['sass', 'lint'], () => {
   watching = true
