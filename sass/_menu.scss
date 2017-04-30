@@ -1,0 +1,23 @@
+@import 'mixins/colours';
+@import 'mixins/text';
+
+.menu {
+  background-color: $dark_background;
+  color: $dark_text;
+  border-bottom: solid 3px $highlight;
+  padding: 6px;
+
+  .title {
+    @include text-large;
+  }
+
+  a {
+    color: $dark_text;
+    text-decoration: none;
+  }
+
+  img,
+  nav {
+    display: none;
+  }
+}

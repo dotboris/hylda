@@ -10,9 +10,9 @@ html lang={{ .Site.LanguageCode }}
     meta name=viewport content="width=device-width, initial-scale=1"
     link rel=stylesheet href=css/index.css
   body
-    aside
+    aside.menu
       img src=https://placehold.it/200 alt={{ .Site.Author.Name }}
-      div {{ .Site.Title }}
+      a.title href={{ "/" | relURL }} {{ .Site.Title }}
       nav
         ul
           {{ range .Site.Menus.main }}
