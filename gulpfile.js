@@ -42,7 +42,7 @@ gulp.task('icons', () =>
 
 gulp.task('default', ['sass', 'icons'])
 
-gulp.task('watch', ['sass', 'lint'], () => {
+gulp.task('watch', ['default', 'lint'], () => {
   watching = true
   gulp.watch(SASS_FILES, ['sass', 'lint:sass'])
 })
