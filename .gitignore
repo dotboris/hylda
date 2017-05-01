@@ -1,5 +1,6 @@
 /static/css/
-/layouts/partials/icons
+/layouts/partials/icons/*
+!/layouts/partials/icons/LICENSE
 
 # Created by https://www.gitignore.io/api/node
 
