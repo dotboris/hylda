@@ -18,9 +18,14 @@
     justify-content: flex-end;
     border-right: solid 3px $highlight-colour;
     text-align: center;
+    padding: 1rem;
 
     .burger {
       display: none;
+    }
+
+    nav li {
+      margin-bottom: 0.2rem;
     }
   }
 
@@ -34,6 +39,15 @@
 
     .toggle:checked ~ nav {
       display: block;
+    }
+
+    nav {
+      margin-top: 0.7rem;
+      padding-left: 1rem;
+
+      li {
+        margin-bottom: 0.7rem;
+      }
     }
   }
 
@@ -59,7 +73,7 @@
     margin-bottom: 1rem;
   }
 
-  img {
+  .photo {
     width: 200px;
     height: 200px;
     border-radius: 50%;
@@ -71,14 +85,9 @@
     text-decoration: none;
   }
 
-  nav ul {
+  ul {
     margin: 0;
-    margin-top: 12px;
-    padding-left: 12px;
+    padding: 0;
     list-style: none;
-
-    li {
-      margin-bottom: 12px;
-    }
   }
 }
