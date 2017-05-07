@@ -1,11 +1,41 @@
 @import 'mixins/colours';
 @import 'mixins/text';
+@import 'mixins/media';
 
 .menu {
   background-color: $dark-colour;
   color: $light-colour;
-  border-bottom: solid 3px $highlight-colour;
   padding: 6px;
+
+  .toggle {
+    display: none;
+  }
+
+  @include media-medium-plus {
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    justify-content: flex-end;
+    border-right: solid 3px $highlight-colour;
+    text-align: center;
+
+    .burger {
+      display: none;
+    }
+  }
+
+  @include media-small {
+    border-bottom: solid 3px $highlight-colour;
+
+    .photo,
+    nav {
+      display: none;
+    }
+
+    .toggle:checked ~ nav {
+      display: block;
+    }
+  }
 
   .burger {
     svg {
@@ -26,21 +56,19 @@
 
     font-weight: bold;
     vertical-align: middle;
+    margin-bottom: 1rem;
+  }
+
+  img {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    margin-bottom: 1rem;
   }
 
   a {
     color: $light-colour;
     text-decoration: none;
-  }
-
-  .photo,
-  .toggle,
-  nav {
-    display: none;
-  }
-
-  .toggle:checked ~ nav {
-    display: block;
   }
 
   nav ul {

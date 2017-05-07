@@ -2,7 +2,7 @@ languageCode = "en-us"
 title = "Hylda example"
 theme = "hylda"
 
-paginate = 3
+paginate = 5
 
 [permaLinks]
   posts = "/:year/:month/:day/:slug/"

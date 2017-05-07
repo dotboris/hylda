@@ -9,7 +9,7 @@ html lang={{ .Site.LanguageCode }}
     {{ end }}
     meta name=viewport content="width=device-width, initial-scale=1"
     link rel=stylesheet href={{ "/css/index.css" | relURL }}
-  body
+  body.layout-root
     aside.menu
       label.burger for=menu-toggle-chk
         {{ partial "icons/menu.svg" }}

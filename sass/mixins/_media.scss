@@ -1,0 +1,13 @@
+$media-small-width: 600px;
+
+@mixin media-small {
+  @media screen and (min-width: 0) and (max-width: $media-small-width) {
+    @content;
+  }
+}
+
+@mixin media-medium-plus {
+  @media screen and (min-width: $media-small-width) {
+    @content;
+  }
+}

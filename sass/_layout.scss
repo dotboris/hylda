@@ -1,0 +1,17 @@
+@import 'mixins/media';
+
+.layout-root {
+  @include media-medium-plus {
+    height: 100vh;
+    display: flex;
+    align-items: stretch;
+
+    .menu {
+      flex: 0 0 18rem;
+    }
+
+    .content {
+      overflow: scroll;
+    }
+  }
+}
