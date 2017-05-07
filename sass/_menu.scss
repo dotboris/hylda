@@ -6,6 +6,14 @@
   background-color: $dark-colour;
   color: $light-colour;
 
+  a:hover {
+    color: $highlight-colour;
+
+    svg {
+      fill: $highlight-colour;
+    }
+  }
+
   .toggle {
     display: none;
   }
@@ -33,6 +41,7 @@
     padding: 0.4rem;
 
     .photo,
+    .social,
     nav {
       display: none;
     }
@@ -95,9 +104,10 @@
     list-style: none;
   }
 
-  .social {
+  .social ul {
     margin-top: 1rem;
     display: flex;
+    justify-content: center;
 
     li {
       width: 1.2rem;
