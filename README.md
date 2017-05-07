@@ -25,6 +25,15 @@ Development
 
 1.  Open <http://localhost:1313>
 
+### Icons
+
+We use the [Font Awesome](https://font-awesome.io/) icons.
+
+To use an icon:
+
+1.  Add the icon name to the `icons.txt` file
+1.  Include your icon using `{{ partial "icon" "{name}" }}`
+
 Releasing
 ---------
 
