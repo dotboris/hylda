@@ -1,0 +1,13 @@
+{{ $page := . }}
+aside.menu
+  label.burger for=menu-toggle-chk
+    {{ partial "icons/menu.svg" }}
+  input.toggle#menu-toggle-chk type=checkbox
+  img.photo src=https://placehold.it/200 alt={{ .Site.Author.Name }}
+  a.title href={{ "/" | relURL }} {{ .Site.Title }}
+  nav
+    ul
+      {{ range .Site.Menus.main }}
+        li class={{ if $page.IsMenuCurrent "main" . }}current{{ end }}
+          a href={{ .URL }} {{ .Name }}
+      {{ end }}
