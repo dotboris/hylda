@@ -1,7 +1,7 @@
 = content main
   {{ $paginator := .Paginate (where .Data.Pages "Section" "posts") }}
   {{ range $paginator.Pages }}
-  article
+  article.preview
     h1
       a href={{ .Permalink }} {{ .Title }}
     time datetime={{ .Date.Format "2006-01-02" }}

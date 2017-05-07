@@ -1,15 +1,12 @@
-@import 'mixins/_colours';
-@import 'mixins/_media';
+@import 'mixins/colours';
+@import 'mixins/media';
 
 .content {
-  margin: 8px;
-
-  h1 a {
-    text-decoration: none;
-    color: $dark-colour;
+  @include media-small {
+    padding: 0.7rem;
   }
 
-  h1 {
-    margin-bottom: 6px;
+  @include media-medium-plus {
+    padding: 2rem;
   }
 }
