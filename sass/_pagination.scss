@@ -36,12 +36,16 @@
       height: 100%;
 
       svg {
+        $chevron-ratio: 1280 / 1792;
+        $chevron-width: 22px;
+
         margin: 0 auto;
         display: inline-block;
         vertical-align: middle;
         fill: $light-colour;
-        width: 20px;
-        height: 20px;
+        width: $chevron-width * $chevron-ratio;
+        height: $chevron-width;
+        padding-top: 2px;
       }
 
       &::before {
@@ -52,13 +56,14 @@
       }
     }
 
-    // icons are not 100% centered, we need to adjust them a bit
+    $-chevron-offset: 4px;
+
     &:first-child svg {
-      padding-right: 2px;
+      padding-right: $-chevron-offset;
     }
 
     &:last-child svg {
-      padding-left: 2px;
+      padding-left: $-chevron-offset;
     }
 
     // spacing between the buttons
