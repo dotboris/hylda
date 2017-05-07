@@ -27,7 +27,7 @@ Development
 
 ### Icons
 
-We use the [Font Awesome](https://font-awesome.io/) icons.
+We use the [Font Awesome](https://fontawesome.io/) icons.
 
 To use an icon:
 
@@ -58,3 +58,11 @@ Releasing
     ```sh
     git push && git push --tags
     ```
+
+License
+-------
+
+All the code in this project is licensed under the [MIT](MIT) license.
+
+The icons are extracted from [Font Awesome](https://fontawesome.io/). They are
+licensed under [SIL OFL 1.1](http://scripts.sil.org/OFL)
