@@ -6,6 +6,7 @@ const stylelint = require('gulp-stylelint')
 const svgSprite = require('gulp-svg-sprite')
 const filter = require('gulp-filter')
 const rename = require('gulp-rename')
+const icons = require('./build/icons.js')
 
 const SASS_FILES = 'sass/**/*.scss'
 
@@ -37,8 +38,8 @@ function filterIcons (file) {
 }
 
 gulp.task('icons', () =>
-  gulp.src('node_modules/open-iconic/svg/*.svg')
-    .pipe(filter(filterIcons))
+  gulp.src('icons.txt')
+    .pipe(icons())
     .pipe(svgSprite({
       mode: { inline: true, symbol: true },
       shape: {
@@ -58,5 +59,6 @@ gulp.task('default', ['sass', 'icons'])
 
 gulp.task('watch', ['default', 'lint'], () => {
   watching = true
+  gulp.watch('icons.txt', ['icons'])
   gulp.watch(SASS_FILES, ['sass', 'lint:sass'])
 })
