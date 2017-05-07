@@ -3,16 +3,16 @@ div.pagination
     li
       {{ if .HasPrev }}
         a href={{ .Prev.URL }}
-          {{ partial "icons/chevron-left.svg" }}
+          {{ partial "icon" "chevron-left" }}
       {{ else }}
         span
-          {{ partial "icons/chevron-left.svg" }}
+          {{ partial "icon" "chevron-left" }}
       {{ end }}
     li
       {{ if .HasNext }}
         a href={{ .Next.URL }}
-          {{ partial "icons/chevron-right.svg" }}
+          {{ partial "icon" "chevron-right" }}
       {{ else }}
         span
-          {{ partial "icons/chevron-right.svg" }}
+          {{ partial "icon" "chevron-right" }}
       {{ end }}

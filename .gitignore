@@ -1,6 +1,5 @@
 /static/css/
-/layouts/partials/icons/*
-!/layouts/partials/icons/LICENSE
+/layouts/partials/icons-bundle.svg
 
 # Created by https://www.gitignore.io/api/node
 

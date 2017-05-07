@@ -3,7 +3,9 @@ const sass = require('gulp-sass')
 const postcss = require('gulp-postcss')
 const autoprefixer = require('autoprefixer')
 const stylelint = require('gulp-stylelint')
+const svgSprite = require('gulp-svg-sprite')
 const filter = require('gulp-filter')
+const rename = require('gulp-rename')
 
 const SASS_FILES = 'sass/**/*.scss'
 
@@ -37,7 +39,19 @@ function filterIcons (file) {
 gulp.task('icons', () =>
   gulp.src('node_modules/open-iconic/svg/*.svg')
     .pipe(filter(filterIcons))
-    .pipe(gulp.dest('layouts/partials/icons/'))
+    .pipe(svgSprite({
+      mode: { inline: true, symbol: true },
+      shape: {
+        id: {
+          generator: 'icon-%s'
+        }
+      },
+      svg: {
+        xmlDeclaration: false
+      }
+    }))
+    .pipe(rename('icons-bundle.svg'))
+    .pipe(gulp.dest('layouts/partials/'))
 )
 
 gulp.task('default', ['sass', 'icons'])
