@@ -27,7 +27,7 @@ Development
 
 ### Icons
 
-We use the [Font Awesome](https://fontawesome.io/) icons.
+We use the [Font Awesome](http://fontawesome.io/) icons.
 
 To use an icon:
 
@@ -62,7 +62,7 @@ Releasing
 License
 -------
 
-All the code in this project is licensed under the [MIT](MIT) license.
+All the code in this project is licensed under the [MIT](LICENSE) license.
 
-The icons are extracted from [Font Awesome](https://fontawesome.io/). They are
+The icons are extracted from [Font Awesome](http://fontawesome.io/). They are
 licensed under [SIL OFL 1.1](http://scripts.sil.org/OFL)
