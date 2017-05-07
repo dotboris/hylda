@@ -1,3 +1,8 @@
 chevron-left
 chevron-right
 bars
+twitter
+github
+linkedin
+instagram
+rss

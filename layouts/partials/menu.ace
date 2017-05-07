@@ -11,3 +11,31 @@ aside.menu
         li class={{ if $page.IsMenuCurrent "main" . }}current{{ end }}
           a href={{ .URL }} {{ .Name }}
       {{ end }}
+  {{ with .Site.Params.social }}
+    ul.social
+      {{ with .twitter }}
+        li
+          a href=https://twitter.com/{{ . }}
+            {{ partial "icon" "twitter" }}
+      {{ end }}
+      {{ with .github }}
+        li
+          a href=https://github.com/{{ . }}
+            {{ partial "icon" "github" }}
+      {{ end }}
+      {{ with .instagram }}
+        li
+          a href=https://instagram.com/{{ . }}
+            {{ partial "icon" "instagram" }}
+      {{ end }}
+      {{ with .linkedin }}
+        li
+          a href=https://linkedin.com/in/{{ . }}
+            {{ partial "icon" "linkedin" }}
+      {{ end }}
+      {{ with ($.Site.GetPage "section" "posts") }}
+        li
+          a href={{ .RSSLink }}
+            {{ partial "icon" "rss" }}
+      {{ end }}
+  {{ end }}

@@ -9,6 +9,10 @@ html lang={{ .Site.LanguageCode }}
     {{ end }}
     meta name=viewport content="width=device-width, initial-scale=1"
     link rel=stylesheet href={{ "/css/index.css" | relURL }}
+    {{ with ($.Site.GetPage "section" "posts") }}
+      link href={{ .RSSLink }} type=application/rss+xml title={{ $.Site.Title }} rel=alternate
+      link href={{ .RSSLink }} type=application/rss+xml title={{ $.Site.Title }} rel=feed
+    {{ end }}
   body.layout-root
     div style=display:none;
       {{ partial "icons-bundle.svg" }}

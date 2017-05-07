@@ -6,3 +6,9 @@ paginate = 5
 
 [permaLinks]
   posts = "/:year/:month/:day/:slug/"
+
+[params.social]
+  twitter = "dotboris"
+  github = "dotboris"
+  linkedin = "boris-bera-40673186"
+  instagram = "boris.bera"
