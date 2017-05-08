@@ -112,10 +112,13 @@
     list-style: none;
   }
 
-  .social ul {
+  .social {
     margin-top: 1rem;
-    display: flex;
-    justify-content: center;
+
+    ul {
+      display: flex;
+      justify-content: center;
+    }
 
     li {
       width: 1.2rem;
