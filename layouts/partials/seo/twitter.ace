@@ -1,6 +1,7 @@
 meta name=twitter:card content="summary"
 {{ with .Site.Params.social.twitter }}
-meta name=twitter:site content=@{{ . }}
+  meta name=twitter:site content=@{{ . }}
+  meta name=twitter:creator content=@{{ . }}
 {{ end }}
 {{ with (.Description | default .Summary) }}
   meta name=twitter:description content={{ . }}

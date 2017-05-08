@@ -16,6 +16,7 @@ html lang={{ .Site.LanguageCode }}
       meta name=author content={{ . }}
     {{ end }}
     {{ partial "seo/twitter" . }}
+    {{ partial "seo/opengraph" . }}
     link rel=stylesheet href={{ "/css/index.css" | relURL }}
     {{ with ($.Site.GetPage "section" "posts") }}
       link href={{ .RSSLink }} type=application/rss+xml title={{ $.Site.Title }} rel=alternate

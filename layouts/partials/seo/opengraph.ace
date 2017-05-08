@@ -1,0 +1,18 @@
+{{ if .IsHome }}
+  meta property=og:type content=website
+  meta property=og:title content={{ .Site.Title }}
+  meta property=og:image content={{ "photo.png" | absURL }}
+{{ else }}
+  meta property=og:type content=article
+  meta property=og:title content={{ .Title }}
+  {{ if not .Date.IsZero }}
+    meta property=og:published_time content={{ .Date.Format "2006-01-02T15:04:05-0700" }}
+  {{ end }}
+{{ end }}
+
+meta property=og:url content={{ .URL | absURL }}
+meta property=og:site_name content={{ .Site.Title }}
+
+{{ with (.Description | default .Summary) }}
+  meta property=og:description content={{ . }}
+{{ end }}
