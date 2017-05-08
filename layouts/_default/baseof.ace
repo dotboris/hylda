@@ -7,8 +7,11 @@ html lang={{ .Site.LanguageCode }}
       title {{ .Site.Title }}
     {{ else }}
       title {{ .Title }} | {{ .Site.Title }}
-      meta name=description content={{ .Description | default .Summary }}
     {{ end }}
+    {{ with (.Description | default .Summary) }}
+      meta name=description content={{ . }}
+    {{ end }}
+    link rel=canonical href={{ .URL }}
     link rel=stylesheet href={{ "/css/index.css" | relURL }}
     {{ with ($.Site.GetPage "section" "posts") }}
       link href={{ .RSSLink }} type=application/rss+xml title={{ $.Site.Title }} rel=alternate
