@@ -2,12 +2,13 @@
 html lang={{ .Site.LanguageCode }}
   head
     meta charset=utf-8
+    meta name=viewport content="width=device-width, initial-scale=1"
     {{ if .IsHome }}
       title {{ .Site.Title }}
     {{ else }}
       title {{ .Title }} | {{ .Site.Title }}
+      meta name=description content={{ .Description | default .Summary }}
     {{ end }}
-    meta name=viewport content="width=device-width, initial-scale=1"
     link rel=stylesheet href={{ "/css/index.css" | relURL }}
     {{ with ($.Site.GetPage "section" "posts") }}
       link href={{ .RSSLink }} type=application/rss+xml title={{ $.Site.Title }} rel=alternate
