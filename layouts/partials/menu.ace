@@ -3,7 +3,8 @@ aside.menu
   label.burger for=menu-toggle-chk
     {{ partial "icon" "bars" }}
   input.toggle#menu-toggle-chk type=checkbox
-  img.photo src=https://placehold.it/200 alt={{ .Site.Author.Name }}
+  a.photo href={{ "/" | relURL }}
+    img src=https://placehold.it/200 alt={{ .Site.Author.Name }}
   a.title href={{ "/" | relURL }} {{ .Site.Title }}
   nav
     ul
