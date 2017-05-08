@@ -1,0 +1,13 @@
+meta name=twitter:card content="summary"
+{{ with .Site.Params.social.twitter }}
+meta name=twitter:site content=@{{ . }}
+{{ end }}
+{{ with (.Description | default .Summary) }}
+  meta name=twitter:description content={{ . }}
+{{ end }}
+{{ if .IsHome }}
+  meta name=twitter:title content={{ .Site.Title }}
+  meta name=twitter:image content={{ "picture.png" | absURL }}
+{{ else }}
+  meta name=twitter:title content={{ .Title }}
+{{ end }}

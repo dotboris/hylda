@@ -12,6 +12,10 @@ html lang={{ .Site.LanguageCode }}
       meta name=description content={{ . }}
     {{ end }}
     link rel=canonical href={{ .URL }}
+    {{ with .Author.DisplayName | default .Site.Author.name }}
+      meta name=author content={{ . }}
+    {{ end }}
+    {{ partial "seo/twitter" . }}
     link rel=stylesheet href={{ "/css/index.css" | relURL }}
     {{ with ($.Site.GetPage "section" "posts") }}
       link href={{ .RSSLink }} type=application/rss+xml title={{ $.Site.Title }} rel=alternate

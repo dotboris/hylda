@@ -7,6 +7,9 @@ paginate = 3
 [permaLinks]
   posts = "/:year/:month/:day/:slug/"
 
+[author]
+  name = "Boris Bera"
+
 [params.social]
   twitter = "dotboris"
   github = "dotboris"
