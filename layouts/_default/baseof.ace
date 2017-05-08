@@ -28,3 +28,4 @@ html lang={{ .Site.LanguageCode }}
     {{ partial "menu" . }}
     main.content
       = yield main
+    {{ template "_internal/google_analytics_async.html" . }}
