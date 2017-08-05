@@ -1,11 +1,13 @@
 const gulp = require('gulp')
 const sass = require('gulp-sass')
 const postcss = require('gulp-postcss')
+const cssnano = require('cssnano')
 const autoprefixer = require('autoprefixer')
 const stylelint = require('gulp-stylelint')
 const svgSprite = require('gulp-svg-sprite')
 const rename = require('gulp-rename')
-const icons = require('./build/icons.js')
+const icons = require('./build/icons')
+const sourcemaps = require('gulp-sourcemaps')
 
 const SASS_FILES = 'sass/**/*.scss'
 
@@ -25,8 +27,15 @@ gulp.task('lint', ['lint:sass'])
 
 gulp.task('sass', () =>
   gulp.src(SASS_FILES)
+    .pipe(sourcemaps.init())
     .pipe(sass().on('error', sass.logError))
-    .pipe(postcss([autoprefixer()]))
+    .pipe(postcss([
+      autoprefixer(),
+      cssnano()
+    ]))
+    .pipe(sourcemaps.write('.', {
+      sourceRoot: '/sass'
+    }))
     .pipe(gulp.dest('static/css/'))
 )
 
