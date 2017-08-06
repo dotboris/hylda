@@ -1,5 +1,6 @@
 const gulp = require('gulp')
 const sass = require('gulp-sass')
+const eyeglass = require('eyeglass')
 const postcss = require('gulp-postcss')
 const cssnano = require('cssnano')
 const autoprefixer = require('autoprefixer')
@@ -13,7 +14,8 @@ const SASS_FILES = 'sass/**/*.scss'
 gulp.task('sass', () =>
   gulp.src(SASS_FILES)
     .pipe(sourcemaps.init())
-    .pipe(sass().on('error', sass.logError))
+    .pipe(sass(eyeglass())
+      .on('error', sass.logError))
     .pipe(postcss([
       autoprefixer(),
       cssnano()

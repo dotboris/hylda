@@ -1,12 +1,11 @@
 @import 'mixins/colours';
-@import 'mixins/media';
 
 .content {
-  @include media-small {
+  @include mq($until: mobile) {
     padding: 0.7rem;
   }
 
-  @include media-medium-plus {
+  @include mq($from: mobile) {
     padding: 2rem;
   }
 }

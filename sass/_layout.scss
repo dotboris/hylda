@@ -1,7 +1,5 @@
-@import 'mixins/media';
-
 .layout-root {
-  @include media-medium-plus {
+  @include mq($from: mobile) {
     height: 100vh;
     display: flex;
     align-items: stretch;

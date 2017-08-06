@@ -1,6 +1,5 @@
 @import 'mixins/colours';
 @import 'mixins/text';
-@import 'mixins/media';
 
 .menu {
   background-color: $dark-colour;
@@ -18,7 +17,7 @@
     display: none;
   }
 
-  @include media-medium-plus {
+  @include mq($from: mobile) {
     display: flex;
     flex-flow: column;
     align-items: center;
@@ -36,7 +35,7 @@
     }
   }
 
-  @include media-small {
+  @include mq($until: mobile) {
     border-bottom: solid 3px $highlight-colour;
     padding: 0.4rem;
 
