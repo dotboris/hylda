@@ -27,6 +27,12 @@ Development
 
 1.  Open <http://localhost:1313>
 
+### Linting
+
+```sh
+yarn lint
+```
+
 ### Icons
 
 We use the [Font Awesome](http://fontawesome.io/) icons.
