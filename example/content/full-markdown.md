@@ -175,7 +175,7 @@ http://en.wikipedia.org/
 ```python
 # this function should be optimized
 
-def fibo(n)
+def fibo(n):
     if n == 0:
         return 0
     elif n == 1:
