@@ -29,10 +29,6 @@
     .burger {
       display: none;
     }
-
-    nav li {
-      margin-bottom: 0.2rem;
-    }
   }
 
   @include mq($until: mobile) {
@@ -50,12 +46,8 @@
     }
 
     nav {
-      margin-top: 0.7rem;
+      margin: 0.7rem 0;
       padding-left: 1rem;
-
-      li {
-        margin-bottom: 0.7rem;
-      }
     }
   }
 

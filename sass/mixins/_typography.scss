@@ -1,8 +1,8 @@
 @import 'modularscale';
 
 $modularscale: (
-  base: 1rem,
-  ratio: $fourth
+  base: 1.25rem,
+  ratio: 1.15
 );
 
 @mixin heading($level) {
