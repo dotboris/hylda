@@ -8,8 +8,13 @@
       flex: 0 0 15rem;
     }
 
-    .content {
+    .page {
       overflow-y: auto;
+      width: 100%;
+    }
+
+    .content {
+      max-width: 38rem;
     }
   }
 }
