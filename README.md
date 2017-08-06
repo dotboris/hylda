@@ -17,10 +17,12 @@ Development
     yarn
     ```
 
-1.  Start the development server
+1.  Start the build
+
+    This will serve the example, build the assets and lint your code
 
     ```sh
-    ./bin/serve
+    yarn start
     ```
 
 1.  Open <http://localhost:1313>

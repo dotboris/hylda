@@ -1,0 +1,18 @@
+#!/bin/bash
+set -e
+
+if [ "$#" -lt 2 ]; then
+  echo "usage: $0 <task> <extension>"
+  echo '  task: yarn task to run'
+  echo '  extension: file extension to monitor'
+  exit 1
+fi
+
+root="$(dirname $0)/.."
+
+nodemon -q --exec "run-s $1" -e "$2" \
+  --ignore "$root/node_modules" \
+  --ignore "$root/.git" \
+  --ignore "$root/public" \
+  --ignore "$root/example/themes/hylda" \
+  --ignore "$root/static/css"
