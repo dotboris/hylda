@@ -2,7 +2,7 @@
 html lang={{ .Site.LanguageCode }}
   head
     meta charset=utf-8
-    meta name=viewport content="width=device-width, initial-scale=1"
+    meta name=viewport content="width=device-width, initial-scale=1.0"
     {{ if .IsHome }}
       title {{ .Site.Title }}
     {{ else }}
@@ -26,6 +26,7 @@ html lang={{ .Site.LanguageCode }}
     div style=display:none;
       {{ partial "icons-bundle.svg" }}
     {{ partial "menu" . }}
-    main.content
-      = yield main
+    .page
+      main.content
+        = yield main
     {{ template "_internal/google_analytics_async.html" . }}
