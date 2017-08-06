@@ -1,9 +1,9 @@
-@import 'mixins/text';
 @import 'mixins/colours';
+@import 'mixins/typography';
 
 html {
-  @include text-normal;
-
+  font-size: rs(0);
+  line-height: 1.25;
   font-family: Helvetica, Arial, "Lucida Grande", sans-serif;
   color: $dark-colour;
   background-color: $light-colour;
@@ -11,4 +11,8 @@ html {
 
 body {
   margin: 0;
+}
+
+@for $h from 1 through 6 {
+  h#{$h} { @include heading($h); }
 }

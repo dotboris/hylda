@@ -1,5 +1,5 @@
 @import 'mixins/colours';
-@import 'mixins/text';
+@import 'mixins/typography';
 
 .menu {
   background-color: $dark-colour;
@@ -74,7 +74,7 @@
   }
 
   .title {
-    @include text-largest;
+    @include heading(4);
 
     font-weight: bold;
     vertical-align: middle;

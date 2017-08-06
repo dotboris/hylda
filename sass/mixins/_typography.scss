@@ -1,0 +1,15 @@
+@import 'modularscale';
+
+$modularscale: (
+  base: 1rem,
+  ratio: $fourth
+);
+
+@mixin heading($level) {
+  $size: ms(6 - $level);
+
+  font-weight: bold;
+  font-size: $size;
+  line-height: 1.1;
+  margin: 0;
+}
