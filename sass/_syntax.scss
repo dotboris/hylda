@@ -13,4 +13,26 @@ pre {
   background-color: $dark-colour;
   padding: 1rem;
   overflow-x: auto;
+
+  // comments
+  .c1 { color: $gray; }
+
+  // keywords
+  .k { color: $pink; }
+
+  // function names
+  .nf { color: $blue; }
+
+  // indentifiers
+  .n { color: $yellow; }
+
+  // numbers
+  .mi { color: $red; }
+
+  // strings
+  .sd,
+  .s2,
+  .s1 {
+    color: $green;
+  }
 }

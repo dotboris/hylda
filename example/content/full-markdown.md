@@ -14,6 +14,13 @@ Phasellus id urna et sem lobortis tristique eget quis felis. Curabitur consequat
 # this function should be optimized
 
 def fibo(n):
+    """
+    This is a doc block
+    """
+
+    print "Hello from fibo"
+    print 'Hello with different quotes'
+
     if n == 0:
         return 0
     elif n == 1:
