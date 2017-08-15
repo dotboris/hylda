@@ -19,17 +19,12 @@ body {
 }
 
 a {
-  color: $link-colour;
-  text-decoration: none;
-
-  &:hover {
-    text-decoration: underline;
-  }
+  color: $blue;
 }
 
 blockquote {
   position: relative;
-  background-color: $block-background-colour;
+  background-color: $light-gray;
   margin: 1rem 0.5rem;
   padding: 1rem;
 
