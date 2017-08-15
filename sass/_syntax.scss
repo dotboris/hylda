@@ -14,6 +14,9 @@ pre {
   padding: 1rem;
   overflow-x: auto;
 
+  // Pygments classes definitions
+  // https://bitbucket.org/birkenfeld/pygments-main/src/7941677dc77d4f2bf0bbd6140ade85a9454b8b80/pygments/token.py?at=default&fileviewer=file-view-default#token.py-124
+
   // comments
   .c1 { color: $gray; }
 
