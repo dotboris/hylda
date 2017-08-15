@@ -4,6 +4,9 @@ theme = "hylda"
 
 paginate = 3
 
+pygmentsCodeFences = true
+pygmentsUseClasses = true
+
 [permaLinks]
   posts = "/:year/:month/:day/:slug/"
 

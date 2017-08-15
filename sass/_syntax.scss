@@ -1,0 +1,16 @@
+@import 'mixins/colours';
+@import url('https://fonts.googleapis.com/css?family=Source+Code+Pro');
+
+pre {
+  code {
+    font-family: 'Source Code Pro' monospace;
+    line-height: 1;
+    color: $light-colour;
+  }
+
+  border-top: 3px $highlight-colour solid;
+  border-bottom: 3px $highlight-colour solid;
+  background-color: $dark-colour;
+  padding: 1rem;
+  overflow-x: auto;
+}

@@ -10,6 +10,18 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam dictum lectus ip
 
 Phasellus id urna et sem lobortis tristique eget quis felis. Curabitur consequat consectetur lobortis. Pellentesque faucibus accumsan tincidunt. Fusce ultrices tellus vitae eros dapibus fermentum. Phasellus placerat ut leo et suscipit. Vivamus vel diam mi. Suspendisse potenti. Aliquam erat volutpat.
 
+```python
+# this function should be optimized
+
+def fibo(n):
+    if n == 0:
+        return 0
+    elif n == 1:
+        return 1
+    else:
+        return fibo(n-1) + fibo(n-2)
+```
+
 Line breaks
 -----------
 
