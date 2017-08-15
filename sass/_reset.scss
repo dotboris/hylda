@@ -1,5 +1,6 @@
 @import 'mixins/colours';
 @import 'mixins/typography';
+@import 'mixins/icons';
 
 html {
   font-size: ms(0);
@@ -19,4 +20,32 @@ body {
 
 a {
   color: $link-colour;
+}
+
+blockquote {
+  position: relative;
+  background-color: $block-background-colour;
+  margin: 1rem 0.5rem;
+  padding: 1rem;
+
+  :first-child {
+    margin-top: 0;
+  }
+
+  :last-child {
+    margin-bottom: 0;
+  }
+
+  &::before {
+    $quote-size: ms(6);
+
+    position: absolute;
+    top: -1rem;
+    right: -0.5rem;
+    width: $quote-size;
+    height: $quote-size;
+    content: '';
+    background: icon-svg('quote-right', $highlight-colour);
+    background-size: $quote-size $quote-size;
+  }
 }

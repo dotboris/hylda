@@ -1,0 +1,5 @@
+@function icon-svg($name, $fill) {
+  $path: "../node_modules/font-awesome-svg-png/black/svg/#{$name}.svg";
+
+  @return unquote('svg-load("#{$path}", fill: #{$fill})');
+}

@@ -3,7 +3,8 @@ module.exports = {
   rules: {
     'at-rule-no-unknown': [true, {
       ignoreAtRules: [
-        'mixin', 'content', 'include', 'if', 'else', 'function', 'each', 'for'
+        'mixin', 'content', 'include', 'if', 'else', 'function', 'each', 'for',
+        'return'
       ]
     }]
   }

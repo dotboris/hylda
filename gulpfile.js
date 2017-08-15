@@ -3,6 +3,7 @@ const sass = require('gulp-sass')
 const eyeglass = require('eyeglass')
 const postcss = require('gulp-postcss')
 const cssnano = require('cssnano')
+const inlineSvg = require('postcss-inline-svg')
 const autoprefixer = require('autoprefixer')
 const svgSprite = require('gulp-svg-sprite')
 const rename = require('gulp-rename')
@@ -17,6 +18,7 @@ gulp.task('sass', () =>
     .pipe(sass(eyeglass())
       .on('error', sass.logError))
     .pipe(postcss([
+      inlineSvg(),
       autoprefixer(),
       cssnano()
     ]))
