@@ -16,3 +16,7 @@ body {
 @for $h from 1 through 6 {
   h#{$h} { @include heading($h); }
 }
+
+a {
+  color: $link-colour;
+}
