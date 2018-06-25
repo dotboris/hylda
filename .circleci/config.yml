@@ -1,0 +1,21 @@
+version: 2
+
+consts:
+  defaults: &defaults
+    docker:
+      - image: node:10
+
+jobs:
+  yarn-deps:
+    <<: *defaults
+    steps:
+      - checkout
+      - restore_cache:
+          keys:
+            - yarn-cache-v1-{{ checksum "yarn.lock" }}
+      - run: yarn install --frozen-lockfile --cache-folder .yarn-cache
+      - run: ls -la
+      - save_cache:
+          key: yarn-cache-v1-{{ checksum "yarn.lock" }}
+          paths:
+            - .yarn-cache
