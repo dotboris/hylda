@@ -112,3 +112,15 @@ jobs:
           root: dist
           paths:
             - public
+
+  deploy-example-site:
+    <<: *defaults
+    steps:
+      - checkout
+      - attach_workspace:
+          at: dist
+      - run: |
+          mv dist/node_modules node_modules
+          ./node_modules/.bin/netlify deploy \
+            -s ba1989e3-bab2-47d9-bc9a-bbdbc2065a83 \
+            -p dist/public
