@@ -2,7 +2,7 @@ Hylda
 =====
 
 [![Demo site](https://img.shields.io/badge/demo-site-brightgreen.svg)](https://hylda-theme.netlify.com/)
-[![npm version](https://badge.fury.io/js/hugo-hylda.svg)](https://badge.fury.io/js/hugo-hylda)
+[![npm version](https://badge.fury.io/js/hugo-hylda.svg)](https://www.npmjs.com/package/hugo-hylda)
 [![CircleCI](https://circleci.com/gh/dotboris/hylda.svg?style=svg)](https://circleci.com/gh/dotboris/hylda)
 
 A Hyde inspired theme for Hugo with a splash of colour.
