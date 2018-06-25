@@ -15,8 +15,5 @@ pygmentsUseClasses = true
 [author]
   name = "Hylda theme"
 
-[params]
-  picture = "butts.jpg"
-
 [params.social]
   github = "dotboris/hylda"
