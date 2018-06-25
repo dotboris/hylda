@@ -38,7 +38,7 @@ workflows:
             branches:
               ignore: /.*/
             tags:
-              only: /^v.*/
+              only: '/^v[\d.]+$/'
       - npm-publish:
           requires:
             - yarn-deps
@@ -51,7 +51,7 @@ workflows:
             branches:
               ignore: /.*/
             tags:
-              only: /^v.*/
+              only: '/^v[\d.]+$/'
 
 jobs:
   yarn-deps:
