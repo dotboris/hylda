@@ -17,27 +17,27 @@ aside.menu
       ul
         {{ with .twitter }}
           li
-            a href=https://twitter.com/{{ . }}
+            a href=https://twitter.com/{{ . }} aria-label=Twitter
               {{ partial "icon" "twitter" }}
         {{ end }}
         {{ with .github }}
           li
-            a href=https://github.com/{{ . }}
+            a href=https://github.com/{{ . }} aria-label=Github
               {{ partial "icon" "github" }}
         {{ end }}
         {{ with .instagram }}
           li
-            a href=https://instagram.com/{{ . }}
+            a href=https://instagram.com/{{ . }} aria-label=Instagram
               {{ partial "icon" "instagram" }}
         {{ end }}
         {{ with .linkedin }}
           li
-            a href=https://linkedin.com/in/{{ . }}
+            a href=https://linkedin.com/in/{{ . }} aria-label=Linkedin
               {{ partial "icon" "linkedin" }}
         {{ end }}
         {{ with ($.Site.GetPage "section" "posts") }}
           li
-            a href={{ .RSSLink }}
+            a href={{ .RSSLink }} aria-label="RSS feed"
               {{ partial "icon" "rss" }}
         {{ end }}
   {{ end }}
