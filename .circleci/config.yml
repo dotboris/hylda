@@ -104,6 +104,7 @@ jobs:
       - attach_workspace:
           at: dist
       - run: |
+          mkdir -p static/css/
           cp dist/css/* static/css/
           cp dist/icons/icons-bundle.svg layouts/partials/
           hugo -s example -d dist/public/
