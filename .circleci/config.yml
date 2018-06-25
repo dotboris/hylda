@@ -92,7 +92,7 @@ jobs:
     steps:
       - checkout
       - attach_workspace:
-          at: layouts/partial
+          at: layouts/partials
       - attach_workspace:
           at: static/css
       - run: cd example && hugo
