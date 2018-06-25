@@ -90,7 +90,7 @@ jobs:
           ln -s dist/node_modules
           ./node_modules/.bin/gulp icons
           mkdir dist/icons
-          cp layout/partials/icons-bundles.svg dist/icons
+          cp layout/partials/icons-bundle.svg dist/icons
       - persist_to_workspace:
           root: 'dist'
           paths:
@@ -105,7 +105,7 @@ jobs:
           at: dist
       - run: |
           cp dist/css/* static/css/
-          cp dist/icons/icons-bundles.svg layouts/partials/
+          cp dist/icons/icons-bundle.svg layouts/partials/
           hugo -s example -d dist/public/
       - persist_to_workspace:
           root: dist
