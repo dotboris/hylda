@@ -4,6 +4,8 @@ theme = "hylda"
 
 paginate = 3
 
+baseURL = "http://localhost:1313"
+
 pygmentsCodeFences = true
 pygmentsUseClasses = true
 
