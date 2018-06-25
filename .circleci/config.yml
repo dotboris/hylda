@@ -115,12 +115,16 @@ jobs:
 
   deploy-example-site:
     <<: *defaults
+    docker:
+      - image: golang
     steps:
       - checkout
       - attach_workspace:
           at: dist
       - run: |
           mv dist/node_modules node_modules
-          ./node_modules/.bin/netlify deploy \
+          go get github.com/netlify/netlifyctl
+          netlifyctl deploy -y \
+            -P dist/public \
             -s ba1989e3-bab2-47d9-bc9a-bbdbc2065a83 \
-            -p dist/public
+            -A "$NETLIFY_AUTH_TOKEN"
