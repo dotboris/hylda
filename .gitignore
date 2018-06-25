@@ -1,5 +1,7 @@
 /static/css/
+/example/public
 /layouts/partials/icons-bundle.svg
+/.netlify
 
 # Created by https://www.gitignore.io/api/node
 
