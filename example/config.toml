@@ -4,7 +4,7 @@ theme = "hylda"
 
 paginate = 3
 
-baseURL = "http://localhost:1313"
+baseURL = "https://hylda-theme.netlify.com"
 
 pygmentsCodeFences = true
 pygmentsUseClasses = true
