@@ -18,24 +18,23 @@ pre {
   // https://bitbucket.org/birkenfeld/pygments-main/src/7941677dc77d4f2bf0bbd6140ade85a9454b8b80/pygments/token.py?at=default&fileviewer=file-view-default#token.py-124
 
   // comments
-  .c1 { color: $gray; }
+  [class^=c] { color: $gray; }
 
   // keywords
-  .k { color: $pink; }
+  [class^=k] { color: $pink; }
 
   // function names
-  .nf { color: $blue; }
+  .nf,
+  .fm {
+    color: $blue;
+  }
 
-  // indentifiers
-  .n { color: $yellow; }
-
-  // numbers
-  .mi { color: $red; }
+  // classes & constants
+  .nc,
+  .no {
+    color: $yellow;
+  }
 
   // strings
-  .sd,
-  .s2,
-  .s1 {
-    color: $green;
-  }
+  [class^=s] { color: $green; }
 }
