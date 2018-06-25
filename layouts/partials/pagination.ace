@@ -2,17 +2,17 @@ div.pagination
   ul
     li
       {{ if .HasPrev }}
-        a href={{ .Prev.URL }}
+        a href={{ .Prev.URL }} aria-label="Previous page"
           {{ partial "icon" "chevron-left" }}
       {{ else }}
-        span
+        span aria-label="Previous page" aria-disabled=true
           {{ partial "icon" "chevron-left" }}
       {{ end }}
     li
       {{ if .HasNext }}
-        a href={{ .Next.URL }}
+        a href={{ .Next.URL }} aria-label="Next page"
           {{ partial "icon" "chevron-right" }}
       {{ else }}
-        span
+        span aria-label="Next page" aria-disabled=true
           {{ partial "icon" "chevron-right" }}
       {{ end }}
