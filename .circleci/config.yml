@@ -10,7 +10,7 @@ workflows:
   everything:
     jobs:
       - yarn-deps
-      - lint-scss:
+      - lint-css:
           requires:
             - yarn-deps
       - lint-js:
