@@ -35,11 +35,14 @@ jobs:
       - restore_cache:
           keys:
             - yarn-cache-v1-{{ checksum "yarn.lock" }}
-      - run: yarn install --frozen-lockfile --cache-folder .yarn-cache
+      - run: |
+          yarn install --frozen-lockfile --cache-folder .yarn-cache
+          mkdir dist
+          rsync -a node_modules dist/
       - persist_to_workspace:
-          root: 'node_modules'
+          root: 'dist'
           paths:
-            - '*'
+            - 'node_modules'
       - save_cache:
           key: yarn-cache-v1-{{ checksum "yarn.lock" }}
           paths:
@@ -49,42 +52,49 @@ jobs:
     <<: *defaults
     steps:
       - checkout
-      - attach_workspace:
-          at: node_modules
-      - run: yarn lint:js
+      - attach_workspace: {at: dist}
+      - run: |
+          ln -s dist/node_modules
+          yarn lint:js
 
   lint-css:
     <<: *defaults
     steps:
       - checkout
-      - attach_workspace:
-          at: node_modules
-      - run: yarn lint:sass
+      - attach_workspace: {at: dist}
+      - run: |
+          ln -s dist/node_modules
+          yarn lint:sass
 
   css:
     <<: *defaults
     steps:
       - checkout
-      - attach_workspace:
-          at: node_modules
-      - run: ./node_modules/.bin/gulp sass
+      - attach_workspace: {at: dist}
+      - run: |
+          ln -s dist/node_modules
+          ./node_modules/.bin/gulp sass
+          mkdir dist/css
+          cp static/css/* dist/css/
       - persist_to_workspace:
-          root: 'static/css'
+          root: 'dist'
           paths:
-            - index.css
-            - index.css.map
+            - css
 
   icons:
     <<: *defaults
     steps:
       - checkout
-      - attach_workspace:
-          at: node_modules
-      - run: ./node_modules/.bin/gulp icons
+      - attach_workspace: {at: dist}
+      - run: |
+          ln -s dist/node_modules
+          ./node_modules/.bin/gulp icons
+          mkdir dist/icons
+          cp layout/partials/icons-bundles.svg dist/icons
       - persist_to_workspace:
-          root: 'layouts/partials'
+          root: 'dist'
           paths:
-            - icons-bundle.svg
+            - icons
 
   example-site:
     docker:
@@ -92,11 +102,12 @@ jobs:
     steps:
       - checkout
       - attach_workspace:
-          at: layouts/partials
-      - attach_workspace:
-          at: static/css
-      - run: cd example && hugo
+          at: dist
+      - run: |
+          cp dist/css/* static/css/
+          cp dist/icons/icons-bundles.svg layouts/partials/
+          hugo -s example -d dist/public/
       - persist_to_workspace:
-          root: 'example/public'
+          root: dist
           paths:
-            - '*'
+            - public
