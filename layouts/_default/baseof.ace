@@ -17,6 +17,8 @@ html lang={{ .Site.LanguageCode }}
     {{ end }}
     {{ partial "seo/twitter" . }}
     {{ partial "seo/opengraph" . }}
+    link rel=preload as=style href={{ "/css/index.css" | relURL }}
+    link rel=preload as=style href="https://fonts.googleapis.com/css?family=Source+Code+Pro"
     link rel=stylesheet href={{ "/css/index.css" | relURL }}
     {{ with ($.Site.GetPage "section" "posts") }}
       link href={{ .RSSLink }} type=application/rss+xml title={{ $.Site.Title }} rel=alternate
