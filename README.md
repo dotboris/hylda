@@ -57,7 +57,7 @@ Releasing
 1.  Push version bump
 
     ```sh
-    git push && git push --tags
+    git push --tags origin master
     ```
 
 1.  The CI will publish a new release and version of the demo site for you
