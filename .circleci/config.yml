@@ -38,7 +38,7 @@ jobs:
       - run: |
           mkdir -p dist
           yarn install --frozen-lockfile --cache-folder .yarn-cache
-          cp -R node_modules dist/node_modules
+          mv node_modules dist/node_modules
       - persist_to_workspace:
           root: 'dist'
           paths:
@@ -54,7 +54,7 @@ jobs:
       - checkout
       - attach_workspace: {at: dist}
       - run: |
-          ln -s dist/node_modules
+          mv dist/node_modules node_modules
           yarn lint:js
 
   lint-css:
@@ -63,7 +63,7 @@ jobs:
       - checkout
       - attach_workspace: {at: dist}
       - run: |
-          ln -s dist/node_modules
+          mv dist/node_modules node_modules
           yarn lint:sass
 
   css:
@@ -72,10 +72,10 @@ jobs:
       - checkout
       - attach_workspace: {at: dist}
       - run: |
-          ln -s dist/node_modules
+          mv dist/node_modules node_modules
           ./node_modules/.bin/gulp sass
           mkdir dist/css
-          cp static/css/* dist/css/
+          mv static/css/* dist/css/
       - persist_to_workspace:
           root: 'dist'
           paths:
@@ -87,10 +87,10 @@ jobs:
       - checkout
       - attach_workspace: {at: dist}
       - run: |
-          ln -s dist/node_modules
+          mv dist/node_modules node_modules
           ./node_modules/.bin/gulp icons
           mkdir dist/icons
-          cp layouts/partials/icons-bundle.svg dist/icons
+          mv layouts/partials/icons-bundle.svg dist/icons/
       - persist_to_workspace:
           root: 'dist'
           paths:
@@ -105,8 +105,8 @@ jobs:
           at: dist
       - run: |
           mkdir -p static/css/
-          cp dist/css/* static/css/
-          cp dist/icons/icons-bundle.svg layouts/partials/
+          mv dist/css/* static/css/
+          mv dist/icons/icons-bundle.svg layouts/partials/
           hugo -s example -d dist/public/
       - persist_to_workspace:
           root: dist
