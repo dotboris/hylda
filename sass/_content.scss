@@ -8,4 +8,8 @@
   @include mq($from: mobile) {
     padding: 2rem;
   }
+
+  img {
+    max-width: 100%;
+  }
 }

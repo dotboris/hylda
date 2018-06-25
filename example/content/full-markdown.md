@@ -92,6 +92,8 @@ Images
 
 ![Wikipedia logo](http://upload.wikimedia.org/wikipedia/en/b/bc/Wiki.png "The Wikipedia logo")
 
+![Large placeholder image](http://via.placeholder.com/900x150)
+
 ![IMSLP logo][img_imslp]
 
 [img_imslp]: http://imslp.org/imslp.png "The IMSLP logo"
