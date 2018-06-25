@@ -54,21 +54,13 @@ Releasing
     yarn version
     ```
 
-1.  Build package
-
-    ```sh
-    yarn run build
-    ```
-
-1.  Deploy to npm registry
-
-    TODO: How?
-
 1.  Push version bump
 
     ```sh
     git push && git push --tags
     ```
+
+1.  The CI will publish a new release and version of the demo site for you
 
 License
 -------
