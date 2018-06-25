@@ -7,24 +7,25 @@ consts:
 
 workflows:
   version: 2
-  all:
-    - yarn-deps
-    - lint-scss:
-        requires:
-          - yarn-deps
-    - lint-js:
-        requires:
-          - yarn-deps
-    - css:
-        requires:
-          - yarn-deps
-    - icons:
-        requires:
-          - yarn-deps
-    - example-site:
-        requires:
-          - css
-          - icons
+  everything:
+    jobs:
+      - yarn-deps
+      - lint-scss:
+          requires:
+            - yarn-deps
+      - lint-js:
+          requires:
+            - yarn-deps
+      - css:
+          requires:
+            - yarn-deps
+      - icons:
+          requires:
+            - yarn-deps
+      - example-site:
+          requires:
+            - css
+            - icons
 
 jobs:
   yarn-deps:
