@@ -36,9 +36,9 @@ jobs:
           keys:
             - yarn-cache-v1-{{ checksum "yarn.lock" }}
       - run: |
+          mkdir -p dist/node_modules
+          ln -s node_modules
           yarn install --frozen-lockfile --cache-folder .yarn-cache
-          mkdir dist
-          rsync -a node_modules dist/
       - persist_to_workspace:
           root: 'dist'
           paths:
