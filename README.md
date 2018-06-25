@@ -1,6 +1,9 @@
 Hylda
 =====
 
+[![CircleCI](https://circleci.com/gh/dotboris/hylda.svg?style=svg)](https://circleci.com/gh/dotboris/hylda)
+[![Demo site](https://img.shields.io/badge/demo-site-brightgreen.svg)](https://hylda-theme.netlify.com/)
+
 A Hyde inspired theme for Hugo with a splash of colour.
 
 Installation
