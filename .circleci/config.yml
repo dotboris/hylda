@@ -26,6 +26,10 @@ workflows:
           requires:
             - css
             - icons
+      - deploy-example-site:
+          requires:
+            - yarn-deps
+            - example-site
 
 jobs:
   yarn-deps:
