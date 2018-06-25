@@ -1,5 +1,4 @@
-Hylda
-=====
+# Hylda
 
 [![Demo site](https://img.shields.io/badge/demo-site-brightgreen.svg)](https://hylda-theme.netlify.com/)
 [![npm version](https://badge.fury.io/js/hugo-hylda.svg)](https://www.npmjs.com/package/hugo-hylda)
@@ -7,13 +6,40 @@ Hylda
 
 A Hyde inspired theme for Hugo with a splash of colour.
 
-Installation
-------------
+## Installation
 
-TODO
+This theme is distributed through the NPM registry. It's recommended to install
+it with either `npm` or `yarn`.
 
-Development
------------
+1.  Setup an `package.json` if you don't already have one
+
+    ```sh
+    yarn init
+    ```
+
+1.  Add this theme
+
+    ```sh
+    yarn add hugo-hylda
+    ```
+
+1.  Link the theme in your `themes` folder
+
+    ```sh
+    mkdir -p themes
+    cd themes
+    ln -s ../node_modules/hugo-hylda
+    mv hugo-hylda hylda
+    cd ..
+    ```
+
+1.  Set your theme in `config.toml`
+
+    ```toml
+    theme = "hylda"
+    ```
+
+## Development
 
 1.  Install dependencies
 
@@ -46,8 +72,7 @@ To use an icon:
 1.  Add the icon name to the `icons.txt` file
 1.  Include your icon using `{{ partial "icon" "{name}" }}`
 
-Releasing
----------
+## Releasing
 
 1.  Bump version
 
@@ -63,8 +88,7 @@ Releasing
 
 1.  The CI will publish a new release and version of the demo site for you
 
-License
--------
+## License
 
 All the code in this project is licensed under the [MIT](LICENSE) license.
 
