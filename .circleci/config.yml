@@ -107,7 +107,7 @@ jobs:
           mkdir -p static/css/
           mv dist/css/* static/css/
           mv dist/icons/icons-bundle.svg layouts/partials/
-          hugo -s example -d dist/public/
+          hugo -s example -d ../dist/public/
       - persist_to_workspace:
           root: dist
           paths:
