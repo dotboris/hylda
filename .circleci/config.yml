@@ -87,6 +87,16 @@ jobs:
             - icons-bundle.svg
 
   example-site:
-    <<: *defaults
+    docker:
+      - image: jguyomard/hugo-builder:0.42-extras
     steps:
-      - run: echo hello world
+      - checkout
+      - attach_workspace:
+          at: layouts/partial
+      - attach_workspace:
+          at: static/css
+      - run: cd example && hugo
+      - persist_to_workspace:
+          root: 'example/public'
+          paths:
+            - '*'
