@@ -1,10 +1,10 @@
 version: 2
 
 consts:
-  run-on-version-tags: &run-on-version-tags
+  run-on-tags: &run-on-tags
     filters:
       tags:
-        only: '/v^/'
+        only: /.*/
   defaults: &defaults
     docker:
       - image: node:10
@@ -14,25 +14,25 @@ workflows:
   everything:
     jobs:
       - yarn-deps:
-          <<: *run-on-version-tags
+          <<: *run-on-tags
       - lint-css:
-          <<: *run-on-version-tags
+          <<: *run-on-tags
           requires:
             - yarn-deps
       - lint-js:
-          <<: *run-on-version-tags
+          <<: *run-on-tags
           requires:
             - yarn-deps
       - css:
-          <<: *run-on-version-tags
+          <<: *run-on-tags
           requires:
             - yarn-deps
       - icons:
-          <<: *run-on-version-tags
+          <<: *run-on-tags
           requires:
             - yarn-deps
       - example-site:
-          <<: *run-on-version-tags
+          <<: *run-on-tags
           requires:
             - css
             - icons
@@ -48,7 +48,7 @@ workflows:
             branches:
               ignore: /.*/
             tags:
-              only: '/^v/'
+              only: /.*/
       - npm-publish:
           requires:
             - yarn-deps
@@ -61,7 +61,7 @@ workflows:
             branches:
               ignore: /.*/
             tags:
-              only: '/^v/'
+              only: /.*/
 
 jobs:
   yarn-deps:
