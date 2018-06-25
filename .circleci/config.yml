@@ -30,6 +30,11 @@ workflows:
           requires:
             - yarn-deps
             - example-site
+          filters:
+            branches:
+              ignore: /.*/
+            tags:
+              only: /^v.*/
 
 jobs:
   yarn-deps:
