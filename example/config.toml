@@ -13,10 +13,7 @@ pygmentsUseClasses = true
   posts = "/:year/:month/:day/:slug/"
 
 [author]
-  name = "Boris Bera"
+  name = "Hylda theme"
 
 [params.social]
-  twitter = "dotboris"
-  github = "dotboris"
-  linkedin = "boris-bera-40673186"
-  instagram = "boris.bera"
+  github = "dotboris/hylda"
