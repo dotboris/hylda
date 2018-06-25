@@ -15,12 +15,13 @@
     "lint": "run-s lint:*"
   },
   "files": [
-    "archetypes",
-    "layouts",
-    "static",
-    "theme.toml",
-    "LICENSE",
-    "README.md"
+    "/archetypes",
+    "/layouts",
+    "/static",
+    "/theme.toml",
+    "/package.json",
+    "/LICENSE",
+    "/README.md"
   ],
   "devDependencies": {
     "autoprefixer": "^7.1.2",
