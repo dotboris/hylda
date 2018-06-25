@@ -5,6 +5,27 @@ consts:
     docker:
       - image: node:10
 
+workflows:
+  version: 2
+  all:
+    - yarn-deps
+    - lint-scss:
+        requires:
+          - yarn-deps
+    - lint-js:
+        requires:
+          - yarn-deps
+    - css:
+        requires:
+          - yarn-deps
+    - icons:
+        requires:
+          - yarn-deps
+    - example-site:
+        requires:
+          - css
+          - icons
+
 jobs:
   yarn-deps:
     <<: *defaults
@@ -14,8 +35,57 @@ jobs:
           keys:
             - yarn-cache-v1-{{ checksum "yarn.lock" }}
       - run: yarn install --frozen-lockfile --cache-folder .yarn-cache
-      - run: ls -la
+      - persist_to_workspace:
+          root: 'node_modules'
+          paths:
+            - '*'
       - save_cache:
           key: yarn-cache-v1-{{ checksum "yarn.lock" }}
           paths:
             - .yarn-cache
+
+  lint-js:
+    <<: *defaults
+    steps:
+      - checkout
+      - attach_workspace:
+          at: node_modules
+      - run: yarn lint:js
+
+  lint-css:
+    <<: *defaults
+    steps:
+      - checkout
+      - attach_workspace:
+          at: node_modules
+      - run: yarn lint:sass
+
+  css:
+    <<: *defaults
+    steps:
+      - checkout
+      - attach_workspace:
+          at: node_modules
+      - run: ./node_modules/.bin/gulp sass
+      - persist_to_workspace:
+          root: 'static/css'
+          paths:
+            - index.css
+            - index.css.map
+
+  icons:
+    <<: *defaults
+    steps:
+      - checkout
+      - attach_workspace:
+          at: node_modules
+      - run: ./node_modules/.bin/gulp icons
+      - persist_to_workspace:
+          root: 'layouts/partials'
+          paths:
+            - icons-bundle.svg
+
+  example-site:
+    <<: *defaults
+    steps:
+      - run: echo hello world
