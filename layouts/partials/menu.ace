@@ -4,7 +4,7 @@ aside.menu
     {{ partial "icon" "bars" }}
   input.toggle#menu-toggle-chk type=checkbox
   a.photo href={{ "/" | relURL }}
-    img src={{ "picture.png" | relURL }} alt={{ .Site.Author.name }}
+    img src={{ .Site.Params.picture | default "picture.png" | relURL }} alt={{ .Site.Author.name }}
   a.title href={{ "/" | relURL }} {{ .Site.Title }}
   nav
     ul

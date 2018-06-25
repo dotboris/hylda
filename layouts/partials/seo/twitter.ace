@@ -8,7 +8,7 @@ meta name=twitter:card content="summary"
 {{ end }}
 {{ if .IsHome }}
   meta name=twitter:title content={{ .Site.Title }}
-  meta name=twitter:image content={{ "picture.png" | absURL }}
+  meta name=twitter:image content={{ .Site.Params.picture | default "picture.png" | absURL }}
 {{ else }}
   meta name=twitter:title content={{ .Title }}
 {{ end }}
