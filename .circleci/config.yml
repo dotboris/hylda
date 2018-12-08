@@ -151,14 +151,14 @@ jobs:
 
   deploy-example-site:
     docker:
-      - image: golang
+      - image: alpine
     steps:
       - checkout
       - attach_workspace:
           at: dist
       - run: |
-          mv dist/node_modules node_modules
-          go get github.com/netlify/netlifyctl
+          wget -qO- 'https://cli.netlify.com/download/latest/linux' \
+            | tar xz -C /usr/local/bin/
           netlifyctl deploy -y \
             -P dist/public \
             -s ba1989e3-bab2-47d9-bc9a-bbdbc2065a83 \
