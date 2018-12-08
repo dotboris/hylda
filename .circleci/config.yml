@@ -134,7 +134,7 @@ jobs:
 
   example-site:
     docker:
-      - image: jguyomard/hugo-builder:0.42-extras
+      - image: jguyomard/hugo-builder:0.51-extras
     steps:
       - checkout
       - attach_workspace:
