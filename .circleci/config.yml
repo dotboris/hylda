@@ -153,6 +153,7 @@ jobs:
     docker:
       - image: alpine
     steps:
+      - run: apk update && apk add ca-certificates git openssh-client
       - checkout
       - attach_workspace:
           at: dist
