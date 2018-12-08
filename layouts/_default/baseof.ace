@@ -24,6 +24,9 @@ html lang={{ .Site.LanguageCode }}
       link href={{ .RSSLink }} type=application/rss+xml title={{ $.Site.Title }} rel=alternate
       link href={{ .RSSLink }} type=application/rss+xml title={{ $.Site.Title }} rel=feed
     {{ end }}
+    {{ with .Site.Params.googleSiteVerificationCode }}
+      meta name=google-site-verification content={{ . }}
+    {{ end }}
   body.layout-root
     div style=display:none;
       {{ partial "icons-bundle.svg" }}
