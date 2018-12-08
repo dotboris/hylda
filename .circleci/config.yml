@@ -70,10 +70,10 @@ jobs:
       - checkout
       - restore_cache:
           keys:
-            - yarn-cache-v1-{{ checksum "yarn.lock" }}
+            - yarn-cache-v2
       - run: |
           mkdir -p dist
-          yarn install --frozen-lockfile --cache-folder .yarn-cache
+          yarn install --cache-folder .yarn-cache
           mv node_modules dist/node_modules
       - persist_to_workspace:
           root: 'dist'
