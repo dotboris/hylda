@@ -9,6 +9,11 @@ baseURL = "https://hylda-theme.netlify.com"
 pygmentsCodeFences = true
 pygmentsUseClasses = true
 
+googleAnalytics = "UA-52565545-2"
+
+[params]
+  googleSiteVerificationCode = "IbLskKQDHp1Nausit9EgvP2ajuGUabwB6yGIpsYzjsU"
+
 [permaLinks]
   posts = "/:year/:month/:day/:slug/"
 
