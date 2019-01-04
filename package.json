@@ -32,7 +32,7 @@
     "eslint-plugin-import": "^2.7.0",
     "eslint-plugin-node": "^5.1.1",
     "eslint-plugin-promise": "^3.5.0",
-    "eslint-plugin-standard": "^3.0.1",
+    "eslint-plugin-standard": "^4.0.0",
     "eyeglass": "^1.2.1",
     "font-awesome-assets": "^0.0.7",
     "font-awesome-svg-png": "^1.2.2",
