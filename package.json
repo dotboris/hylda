@@ -36,7 +36,7 @@
     "eyeglass": "^2.0.0",
     "font-awesome-assets": "^0.0.8",
     "font-awesome-svg-png": "^1.2.2",
-    "gulp": "^3.9.1",
+    "gulp": "^4.0.0",
     "gulp-postcss": "^8.0.0",
     "gulp-rename": "^1.2.2",
     "gulp-sass": "^4.0.2",
