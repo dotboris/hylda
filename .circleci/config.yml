@@ -39,8 +39,6 @@ workflows:
       - deploy-preview:
           requires:
             - yarn-deps
-            - css
-            - icons
             - example-site
           filters:
             branches:
