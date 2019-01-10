@@ -175,6 +175,7 @@ jobs:
             --sha1 "$CIRCLE_SHA1" \
             --context "deploy/preview" \
             --token "$GITHUB_STATUS_TOKEN" \
+            'Preview app' \
             "$CIRCLE_BUILD_URL"
           ./node_modules/.bin/netlify deploy \
             -d dist/public \
@@ -191,6 +192,7 @@ jobs:
               --sha1 "$CIRCLE_SHA1" \
               --context "deploy/preview" \
               --token "$GITHUB_STATUS_TOKEN" \
+              'Preview app' \
               "$deploy_url"
       - run:
           when: on_fail
@@ -201,6 +203,7 @@ jobs:
               --sha1 "$CIRCLE_SHA1" \
               --context "deploy/preview" \
               --token "$GITHUB_STATUS_TOKEN" \
+              'Preview app' \
               "$CIRCLE_BUILD_URL"
 
   deploy-example-site:
