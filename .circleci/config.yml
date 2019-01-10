@@ -41,8 +41,6 @@ workflows:
             - yarn-deps
             - css
             - icons
-            - lint-js
-            - lint-css
             - example-site
           filters:
             branches:
