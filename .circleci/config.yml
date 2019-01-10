@@ -36,6 +36,14 @@ workflows:
           requires:
             - css
             - icons
+      - deploy-preview:
+          requires:
+            - yarn-deps
+            - css
+            - icons
+            - lint-js
+            - lint-css
+            - example-site
       - deploy-example-site:
           requires:
             - yarn-deps
@@ -148,6 +156,18 @@ jobs:
           root: dist
           paths:
             - public
+
+  deploy-preview:
+    <<: *defaults
+    steps:
+      - checkout
+      - attach_workspace: {at: dist}
+      - run: |
+          mv dist/node_modules node_modules
+          ./node_modules/.bin/netifly deploy \
+            -d dist/public \
+            -s ba1989e3-bab2-47d9-bc9a-bbdbc2065a83 \
+            -m "Preview build for $CIRCLE_PULL_REQUEST ($CIRCLE_SHA1)"
 
   deploy-example-site:
     docker:
