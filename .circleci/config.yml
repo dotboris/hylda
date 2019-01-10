@@ -47,6 +47,8 @@ workflows:
           filters:
             branches:
               ignore: master
+            tags:
+              ignore: /.*/
       - deploy-example-site:
           requires:
             - yarn-deps
