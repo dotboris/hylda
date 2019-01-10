@@ -36,6 +36,15 @@ workflows:
           requires:
             - css
             - icons
+      - deploy-preview:
+          requires:
+            - yarn-deps
+            - example-site
+          filters:
+            branches:
+              ignore: master
+            tags:
+              ignore: /.*/
       - deploy-example-site:
           requires:
             - yarn-deps
@@ -148,6 +157,50 @@ jobs:
           root: dist
           paths:
             - public
+
+  deploy-preview:
+    <<: *defaults
+    steps:
+      - checkout
+      - attach_workspace: {at: dist}
+      - run: |
+          mv dist/node_modules node_modules
+          ./node_modules/.bin/status-back \
+            --pending \
+            --repo dotboris/hylda \
+            --sha1 "$CIRCLE_SHA1" \
+            --context "deploy/preview" \
+            --token "$GITHUB_STATUS_TOKEN" \
+            'Preview app' \
+            "$CIRCLE_BUILD_URL"
+          ./node_modules/.bin/netlify deploy \
+            -d dist/public \
+            -s ba1989e3-bab2-47d9-bc9a-bbdbc2065a83 \
+            -m "Preview build for $CIRCLE_PULL_REQUEST ($CIRCLE_SHA1)" \
+            | tee netlify-deploy.log
+      - run:
+          when: on_success
+          command: |
+            deploy_url="$(grep < netlify-deploy.log -Eo 'https://.+\.netlify\.com$')"
+            ./node_modules/.bin/status-back \
+              --success \
+              --repo dotboris/hylda \
+              --sha1 "$CIRCLE_SHA1" \
+              --context "deploy/preview" \
+              --token "$GITHUB_STATUS_TOKEN" \
+              'Preview app' \
+              "$deploy_url"
+      - run:
+          when: on_fail
+          command: |
+            ./node_modules/.bin/status-back \
+              --failure \
+              --repo dotboris/hylda \
+              --sha1 "$CIRCLE_SHA1" \
+              --context "deploy/preview" \
+              --token "$GITHUB_STATUS_TOKEN" \
+              'Preview app' \
+              "$CIRCLE_BUILD_URL"
 
   deploy-example-site:
     docker:
