@@ -44,6 +44,9 @@ workflows:
             - lint-js
             - lint-css
             - example-site
+          filters:
+            branches:
+              ignore: master
       - deploy-example-site:
           requires:
             - yarn-deps
