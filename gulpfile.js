@@ -1,5 +1,5 @@
 const gulp = require('gulp')
-const sass = require('gulp-sass')
+const gulpSass = require('gulp-sass')
 const eyeglass = require('eyeglass')
 const postcss = require('gulp-postcss')
 const cssnano = require('cssnano')
@@ -7,16 +7,14 @@ const inlineSvg = require('postcss-inline-svg')
 const autoprefixer = require('autoprefixer')
 const svgSprite = require('gulp-svg-sprite')
 const rename = require('gulp-rename')
-const icons = require('./build/icons')
+const generateSvgIcons = require('./build/icons')
 const sourcemaps = require('gulp-sourcemaps')
 
 const SASS_FILES = 'sass/**/*.scss'
-
-gulp.task('sass', () =>
-  gulp.src(SASS_FILES)
+function sass () {
+  return gulp.src(SASS_FILES)
     .pipe(sourcemaps.init())
-    .pipe(sass(eyeglass())
-      .on('error', sass.logError))
+    .pipe(gulpSass(eyeglass()).on('error', gulpSass.logError))
     .pipe(postcss([
       inlineSvg(),
       autoprefixer(),
@@ -26,11 +24,12 @@ gulp.task('sass', () =>
       sourceRoot: '/sass'
     }))
     .pipe(gulp.dest('static/css/'))
-)
+}
 
-gulp.task('icons', () =>
-  gulp.src('icons.txt')
-    .pipe(icons())
+const ICONS_FILE = 'icons.txt'
+function icons () {
+  return gulp.src(ICONS_FILE)
+    .pipe(generateSvgIcons())
     .pipe(svgSprite({
       mode: { inline: true, symbol: true },
       shape: {
@@ -44,11 +43,14 @@ gulp.task('icons', () =>
     }))
     .pipe(rename('icons-bundle.svg'))
     .pipe(gulp.dest('layouts/partials/'))
-)
+}
 
-gulp.task('default', ['sass', 'icons'])
+function watch () {
+  gulp.watch(SASS_FILES, { ignoreInitial: false }, sass)
+  gulp.watch(ICONS_FILE, { ignoreInitial: false }, icons)
+}
 
-gulp.task('watch', ['default'], () => {
-  gulp.watch('icons.txt', ['icons'])
-  gulp.watch(SASS_FILES, ['sass'])
-})
+exports.default = gulp.parallel(sass, icons)
+exports.sass = sass
+exports.icons = icons
+exports.watch = watch
