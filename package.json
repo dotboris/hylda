@@ -46,7 +46,7 @@
     "netlify-cli": "^2.6.1",
     "nodemon": "^1.11.0",
     "npm-run-all": "^4.0.2",
-    "postcss-inline-svg": "^3.0.0",
+    "postcss-inline-svg": "^4.1.0",
     "sass-mq": "^5.0.0",
     "status-back": "^1.1.0",
     "stylelint": "^10.0.0",
