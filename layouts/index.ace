@@ -1,5 +1,6 @@
 = content main
-  {{ $paginator := .Paginate (where .Data.Pages "Section" "posts") }}
+  {{ $posts := (.Site.GetPage `section` `posts`).Pages }}
+  {{ $paginator := .Paginate $posts }}
   {{ range $paginator.Pages }}
   article.preview
     h1
