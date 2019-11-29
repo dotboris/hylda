@@ -146,6 +146,10 @@ jobs:
       - image: ubuntu:bionic
     steps:
       - checkout
+      - run: |
+          # update certs so that we can attach workspace in next step
+          apt-get update -y
+          apt-get install -y ca-certificates
       - attach_workspace:
           at: dist
       - run: |
