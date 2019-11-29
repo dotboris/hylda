@@ -153,6 +153,7 @@ jobs:
           # Install hugo
           curl -sLo hugo.deb https://github.com/gohugoio/hugo/releases/download/v0.59.1/hugo_0.59.1_Linux-64bit.deb
           dpkg --install hugo.deb
+          rm hugo.deb
       - checkout
       - attach_workspace: {at: dist}
       - run: |
