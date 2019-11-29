@@ -143,15 +143,25 @@ jobs:
 
   example-site:
     docker:
-      - image: jguyomard/hugo-builder:0.50-extras
+      - image: ubuntu:bionic
     steps:
       - checkout
-      - attach_workspace:
-          at: dist
       - run: |
+          # update certs so that we can attach workspace in next step
+          apt-get update -y
+          apt-get install -y ca-certificates curl
+
+          # Install hugo
+          curl -sLo hugo.deb https://github.com/gohugoio/hugo/releases/download/v0.59.1/hugo_0.59.1_Linux-64bit.deb
+          dpkg --install hugo.deb
+      - attach_workspace: {at: dist}
+      - run: |
+          # Copy deps from previous steps
           mkdir -p static/css/
           mv dist/css/* static/css/
           mv dist/icons/icons-bundle.svg layouts/partials/
+
+          # Build
           hugo -s example -d ../dist/public/
       - persist_to_workspace:
           root: dist
