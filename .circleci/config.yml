@@ -145,15 +145,15 @@ jobs:
     docker:
       - image: ubuntu:bionic
     steps:
-      - checkout
       - run: |
           # update certs so that we can attach workspace in next step
           apt-get update -y
-          apt-get install -y ca-certificates curl
+          apt-get install -y ca-certificates curl git
 
           # Install hugo
           curl -sLo hugo.deb https://github.com/gohugoio/hugo/releases/download/v0.59.1/hugo_0.59.1_Linux-64bit.deb
           dpkg --install hugo.deb
+      - checkout
       - attach_workspace: {at: dist}
       - run: |
           # Copy deps from previous steps
