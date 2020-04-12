@@ -1,5 +1,5 @@
 const gulp = require('gulp')
-const gulpSass = require('gulp-sass')
+const gulpSass = require('gulp-dart-sass')
 const eyeglass = require('eyeglass')
 const postcss = require('gulp-postcss')
 const cssnano = require('cssnano')
