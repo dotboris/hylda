@@ -191,7 +191,7 @@ jobs:
       - run:
           when: on_success
           command: |
-            deploy_url="$(grep < netlify-deploy.log -Eo 'https://.+\.netlify\.com$')"
+            deploy_url="$(grep < netlify-deploy.log -Eo 'https://.+\.netlify\.app$')"
             ./node_modules/.bin/status-back \
               --success \
               --repo dotboris/hylda \
